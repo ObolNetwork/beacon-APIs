@@ -110,6 +110,8 @@ paths:
     $ref: "./apis/beacon/pool/sync_committees.yaml"
   /eth/v1/beacon/pool/voluntary_exits:
     $ref: "./apis/beacon/pool/voluntary_exists.yaml"
+  /eth/v1/beacon/pool/validator_registration:
+    $ref: "./apis/beacon/pool/validator_registration.yaml"
 
   /eth/v2/debug/beacon/states/{state_id}:
     $ref: './apis/debug/state.v2.yaml'
@@ -292,6 +294,8 @@ components:
     ConsensusVersion:
       enum: [phase0, altair, bellatrix]
       example: "phase0"
+    ValidatorRegistration:
+      $ref: './types/registration.yaml#/ValidatorRegistration'
     SignedValidatorRegistration:
       $ref: './types/registration.yaml#/SignedValidatorRegistration'
     Node:
