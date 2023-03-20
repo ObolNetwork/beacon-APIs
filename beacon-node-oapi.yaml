@@ -188,6 +188,8 @@ paths:
     $ref: "./apis/validator/sync_committee_contribution.yaml"
   /eth/v1/validator/sync_committee_selections:
     $ref: "./apis/validator/sync_committee_selections.yaml"
+  /eth/v1/validator/proposer_config:
+    $ref: "./apis/validator/proposer_config.yaml"
   /eth/v1/validator/contribution_and_proofs:
     $ref: "./apis/validator/sync_committee_contribution_and_proof.yaml"
   /eth/v1/validator/prepare_beacon_proposer:
@@ -245,6 +247,8 @@ components:
       $ref: './types/selection.yaml#/BeaconCommitteeSelection'
     SyncCommitteeSelection:
       $ref: './types/selection.yaml#/SyncCommitteeSelection'
+    ProposerConfig:
+      $ref: './types/proposer_config.yaml#/BuilderProposerConfig'
     Fork:
       $ref: './types/misc.yaml#/Fork'
     Checkpoint:

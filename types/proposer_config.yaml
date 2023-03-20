@@ -1,0 +1,68 @@
+BuilderProposerConfig:
+  type: object
+  required: ["default_config"]
+  properties:
+    default_config:
+      allOf:
+        - $ref: './proposer_config.yaml#/DefaultConfig'
+    proposer_config:
+      allOf:
+        - $ref: './proposer_config.yaml#/ProposerConfig'
+
+DefaultConfig:
+  type: object
+  description: "A default proposer configuration contains all default values to be applied to every validator. These values can be overridden for specific validators in proposer_config."
+  properties:
+    fee_recipient:
+      allOf:
+        - $ref: "./primitive.yaml#/ExecutionAddress"
+        - example: "0xabcf8e0d4e9587369b2301d0790347320302cc09"
+        - description: "Fee-recipient address"
+    builder:
+      allOf:
+        - $ref: './proposer_config.yaml#/Builder'
+
+ProposerConfig:
+  description: "A proposer configuration for multiple validator public keys. This overrides default config for selected validators."
+  type: array
+  items:
+    type: object
+    properties:
+      public_key:
+        allOf:
+          - $ref: "./primitive.yaml#/Pubkey"
+          - description: "The validator to override values for"
+      fee_recipient:
+        allOf:
+          - $ref: "./primitive.yaml#/ExecutionAddress"
+          - example: "0xabcf8e0d4e9587369b2301d0790347320302cc09"
+          - description: "Fee-recipient address"
+      builder:
+        allOf:
+          - $ref: './proposer_config.yaml#/Builder'
+
+Builder:
+  type: object
+  description: "The builder network configuration."
+  properties:
+    enabled:
+      allOf:
+        - type: boolean
+        - example: false
+    gas_limit:
+      allOf:
+        - $ref: "./primitive.yaml#/Uint256"
+    registration_overrides:
+      allOf:
+        - $ref: './proposer_config.yaml#/RegistrationOverrides'
+
+RegistrationOverrides:
+  type: object
+  description: "Fields for overriding validator registrations"
+  properties:
+    timestamp:
+      allOf:
+        - $ref: "./primitive.yaml#/Uint64"
+    public_key:
+      allOf:
+        - $ref: "./primitive.yaml#/Pubkey"
