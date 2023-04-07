@@ -5,8 +5,8 @@ get:
   operationId: "proposerConfig"
   summary: "Produce a proposer config"
   description: |
-    Requests the beacon node or DVT middleware to produce the proposer config. The proposer_config enables validator registrations
-    for distributed validator (DVT) middleware clients.
+    Requests the beacon node or DV middleware to produce the proposer config. The proposer_config enables validator registrations
+    for distributed validator (DV) middleware clients.
   responses:
     "200":
       description: Success response
