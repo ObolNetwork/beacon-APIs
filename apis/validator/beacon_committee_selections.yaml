@@ -6,8 +6,8 @@ post:
     implemented by a distributed validator middleware client. This endpoint is used to exchange partial 
     selection proofs for combined/aggregated selection proofs to allow a validator client 
     to correctly determine if one of its validators has been selected to perform an aggregation duty in a slot. 
-    Validator clients must query this endpoint at the start of an epoch for all validators that have attester duties 
-    in that epoch. Consensus clients need not support this endpoint and may return a 501.
+    Validator clients must query this endpoint at the start of an epoch for the lookahead epochs (current and next epochs) for
+    all validators that have attester duties in the lookahead epochs. Consensus clients need not support this endpoint and may return a 501.
   tags:
     - Validator
   requestBody:
