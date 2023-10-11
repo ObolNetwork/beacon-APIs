@@ -8,8 +8,9 @@ post:
     used to exchange partial selection proof slot signatures for combined/aggregated selection proofs to 
     allow a validator client to correctly determine if one of its validators has been selected to perform a 
     sync committee contribution (sync aggregation) duty in a slot. Validator clients must query this endpoint
-    at the start of an epoch for the lookahead epochs (current and next epochs) for for all validators that have
-    sync committee contribution duties in the lookahead epochs. Consensus clients need not support this endpoint and may return a 501.
+    at the start of an epoch for the current and lookahead (next) epochs for all validators that have
+    sync committee contribution duties in the current and lookahead epochs. Consensus clients need not support this 
+    endpoint and may return a 501.
   tags:
     - Validator
   requestBody:
